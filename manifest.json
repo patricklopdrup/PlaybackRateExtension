@@ -1,0 +1,42 @@
+{
+    "name": "Getting Started Example",
+    "description": "Build an Extension!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "options_page": "options.html",
+    "permissions": ["storage", "activeTab", "scripting"],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "img/start16.png",
+            "32": "img/start32.png",
+            "48": "img/start48.png",
+            "128": "img/start128.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://video.dtu.dk/*"],
+            "js": ["contentscript.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "commands": {
+        "_execute_action": {
+          "suggested_key": {
+            "default": "Ctrl+Shift+F",
+            "mac": "MacCtrl+Shift+F"
+          },
+          "description": "Opens hello.html"
+    }
+    },
+    "icons": {
+        "16": "img/start16.png",
+        "32": "img/start32.png",
+        "48": "img/start48.png",
+        "128": "img/start128.png"
+    }
+  }
