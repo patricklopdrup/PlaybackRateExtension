@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="button.css">
-  </head>
-  <body>
-    <div id="buttonDiv">
-    </div>
-    <div>
-      <p>Choose a different background color!</p>
-    </div>
-    <script src="options.js"></script>
-  </body>
+	<head>
+		<link rel="stylesheet" href="options.css">
+	</head>
+	<body>
+		<div>
+			<h3>Change default playback rates</h3>
+			<form name="defaultRatesForm">
+				<label for="startRate">Start speed:</label>
+				<input type="number" name="startRate" value="1.0">
+
+				<label for="maxRate">Max speed:</label>
+				<input type="number" name="maxRate" value="3.0">
+
+				<label for="minRate">Min speed:</label>
+				<input type="number" name="minRate" value="0.5">
+
+				<label for="stepRate">Step:</label>
+				<input type="number" name="stepRate" value="0.1">
+
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	</body>
+	<script src="options.js"></script>
 </html>

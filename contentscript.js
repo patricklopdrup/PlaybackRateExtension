@@ -1,5 +1,8 @@
 
-console.log("hej")
+
+getRates().then(rates => {
+    console.log(rates.maxRate)
+})
 
 // Get iFrame
 var iframe = document.getElementById('kplayer_ifp')
@@ -14,7 +17,6 @@ iframe.addEventListener("load", function() {
     var slider = makeSlider()
     myDiv.appendChild(num)
     myDiv.appendChild(slider)
-
 
     // Make scroll wheel change the playback rate
     slider.addEventListener('wheel', function(e) {
@@ -82,4 +84,18 @@ function makeSlider() {
     slider.style.width = '70px'
     slider.style.verticalAlign = 'middle'
     return slider
+}
+
+async function getRates() {
+    return new Promise((resolve, reject) => {
+        chrome.storage.sync.get(['startRate', 'maxRate', 'minRate', 'stepRate'], resolve)    
+    })
+    .then(data => {
+        return {
+            startRate: data.startRate ?? defaultStartRate,
+            maxRate: data.maxRate ?? defaultMaxRate,
+            minRate: data.minRate ?? defaultMinRate,
+            stepRate: data.stepRate ?? defaultStepRate
+        }
+    })
 }
