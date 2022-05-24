@@ -20,7 +20,7 @@
     "content_scripts": [
         {
             "matches": ["https://video.dtu.dk/*"],
-            "js": ["contentscript.js"],
+            "js": ["contentscript.js", "defaultRates.js"],
             "run_at": "document_end"
         }
     ],
