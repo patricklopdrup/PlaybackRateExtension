@@ -3,9 +3,6 @@
     "description": "Get playback rate control on video.dtu.dk",
     "version": "1.0",
     "manifest_version": 3,
-    "background": {
-        "service_worker": "background.js"
-    },
     "options_page": "options.html",
     "permissions": ["storage", "activeTab", "scripting"],
     "action": {
